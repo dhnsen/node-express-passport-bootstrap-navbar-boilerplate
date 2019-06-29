@@ -19,6 +19,9 @@ mongoose.connect(db, { useNewUrlParser: true })
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
 
+// BodyParser
+app.use(express.urlencoded({ extended: false }));
+
 // Routes
 app.use('/', require(path.join(__dirname, '/routes/index')));
 app.use('/users', require(path.join(__dirname, '/routes/users')));
