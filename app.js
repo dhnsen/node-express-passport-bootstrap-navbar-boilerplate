@@ -11,8 +11,6 @@ const app = express();
 // Passport config
 require(('./config/passport'))(passport);
 
-app.use('/css', express.static(path.join(__dirname, '/public/css')));
-
 // DB Config
 const db = require(path.join(__dirname, '/config/keys')).MongoURI;
 
