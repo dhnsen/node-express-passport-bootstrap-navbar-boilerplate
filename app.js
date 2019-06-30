@@ -4,8 +4,12 @@ const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
+const passport = require('passport');
 
 const app = express();
+
+// Passport config
+require(('./config/passport'))(passport);
 
 app.use('/css', express.static(path.join(__dirname, '/public/css')));
 
@@ -30,6 +34,10 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Connect Flash
 app.use(flash());
