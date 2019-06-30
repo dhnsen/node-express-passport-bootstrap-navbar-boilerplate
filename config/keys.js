@@ -1,3 +1,4 @@
 module.exports = {
-    MongoURI: 'mongodb+srv://passportuser:BamSlam2019@cluster0-ug0ju.mongodb.net/test?retryWrites=true&w=majority'
+    // place your mongo connection string here example:
+    //MongoURI: 'mongodb+srv://UserName:Password@cluster1-usdfu.mongodb.net/test?retryWrites=true&w=majority'
 }
