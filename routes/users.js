@@ -58,8 +58,18 @@ router.post('/register', (req, res) => {
                         email,
                         password
                     });
-                    console.log('new user');
-                    res.send('user does not exist yet');
+                    //hash password
+                    bcrypt.genSalt(10, (err, salt) => 
+                    bcrypt.hash(newUser.password, salt, (err, hash) => {
+                        if(err) throw err;
+                        newUser.password = hash;
+                        //save user
+                        newUser.save()
+                        .then( user => {
+                            res.redirect('/login');
+                        })
+                        .catch(err => console.log(err));
+                    }))
                 }
             });
     }
