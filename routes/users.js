@@ -13,22 +13,22 @@ router.post('/register', (req, res) => {
     let errors = [];
 
     //check required fields
-    if(!email || !name || !password || !password2) {
-        errors.push({ msg: 'Please fill in all fields.'});
+    if (!email || !name || !password || !password2) {
+        errors.push({ msg: 'Please fill in all fields.' });
     }
 
     // check passwords match
-    if(password != password2) {
-        errors.push({ msg: 'Passwords do not match.'});
+    if (password != password2) {
+        errors.push({ msg: 'Passwords do not match.' });
     }
 
     //check password length
-    if(password.length < 8 || password.length > 16){
-        errors.push({ msg: 'Passwords should be 8-16 characters'});
+    if (password.length < 8 || password.length > 16) {
+        errors.push({ msg: 'Passwords should be 8-16 characters' });
     }
 
-    if (errors.length >0){
-        
+    if (errors.length > 0) {
+
     } else {
         res.send('pass');
     }
